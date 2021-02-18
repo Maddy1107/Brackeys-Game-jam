@@ -12,9 +12,8 @@ public class PlayerScript : MonoBehaviour
     public bool isGrounded;
     public float checkRadius;
     public Transform GroundCheck;
-    public Transform TopCheck;
 
-    public Transform player;
+    public Transform playerClone;
 
     public List<Transform> Clones;
 
@@ -35,13 +34,16 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            Clones.Add(Instantiate(player, transform.position, Quaternion.identity));
+            if (Clones.Count != 8)
+            {
+                Clones.Add(Instantiate(playerClone, transform.position, Quaternion.identity));
+            }
         }
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousepos, Vector3.forward);
-            if (hit.collider == null)
+            if (hit.collider == null || hit.collider.tag == "Player")
                 return;
             else
                 Destroy(hit.collider.gameObject);
