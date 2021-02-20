@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4482800630526283356}
   - component: {fileID: 4482800630526283345}
   - component: {fileID: 4482800630526283344}
-  m_Layer: 0
+  - component: {fileID: 1745499752}
+  m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2510476293373519475, guid: d8102347c1b018c45b58130f0b3688eb,
+  m_Sprite: {fileID: -6888756438569675735, guid: 25c990fecd0469142bb04e98b676174e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -124,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.15, y: 1.1}
+    oldSize: {x: 1.05, y: 1}
     newSize: {x: 1.15, y: 1.1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0d28083e0c34e4e89c0bf1d98ed230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerspeed: 15
+  playerspeed: 30
   jumpstrength: 20
   WhatisGround:
     serializedVersion: 2
@@ -153,9 +154,35 @@ MonoBehaviour:
   isGrounded: 0
   checkRadius: 0.5
   GroundCheck: {fileID: 4482800631869091969}
-  playerClone: {fileID: 3329368092621061269, guid: a3f5135edad01e54db3d5a8597ba5487,
+  playerClone: {fileID: 4482800630526283346, guid: c6efb24babf494642ab997f241de9cc7,
     type: 3}
   Clones: []
+  jumpparticle: {fileID: 2672709935856014120, guid: 01363d3c69af57a4fad814471f3b7e54,
+    type: 3}
+  blastparticlelava: {fileID: 2225544814675139948, guid: 170ceb7fe8c7d0948aa9781537351ab8,
+    type: 3}
+  blastparticlespike: {fileID: 2225544814675139948, guid: 80698cd05de74c34ea31cb379b5758a4,
+    type: 3}
+  canvas: {fileID: 0}
+--- !u!95 &1745499752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4482800630526283357}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d60d1cffd7d3e74985eb1233a7a9e3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4482800631869091970
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4482800631869091969}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

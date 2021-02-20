@@ -35,7 +35,7 @@ public class Shoot : MonoBehaviour
         }
         if(direction == "Left")
         {
-            bulletrb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+            bulletrb.AddForce(Vector2.left * 20, ForceMode2D.Impulse);
         }
     }
 }

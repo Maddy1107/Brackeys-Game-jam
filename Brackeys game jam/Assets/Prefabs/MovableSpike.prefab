@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1095630435046014370}
   - component: {fileID: 9155191828393596951}
   - component: {fileID: -2804284134777311527}
+  - component: {fileID: 1347924332}
   m_Layer: 0
-  m_Name: Spike
-  m_TagString: Untagged
+  m_Name: MovableSpike
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6267301428125316075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.95861256, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,3 +117,16 @@ PolygonCollider2D:
       - {x: 1.0649999, y: -1.095}
       - {x: 1.0649999, y: -1.015}
       - {x: 0.055, y: 1.055}
+--- !u!114 &1347924332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267301428125316075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec8402c42b62114188da9eb7c572d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chanegspeed: 1

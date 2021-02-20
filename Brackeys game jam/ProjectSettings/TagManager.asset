@@ -7,6 +7,14 @@ TagManager:
   - LevelTrigger
   - Wall
   - Bullet
+  - Lava
+  - Spikes
+  - Spawner
+  - Clone
+  - LevelTrigger1
+  - LevelTrigger2
+  - LevelTrigger4
+  - LevelTrigger3
   layers:
   - Default
   - TransparentFX
