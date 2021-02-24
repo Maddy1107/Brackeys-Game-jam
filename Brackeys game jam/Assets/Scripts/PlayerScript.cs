@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -14,8 +15,6 @@ public class PlayerScript : MonoBehaviour
     public Transform GroundCheck;
 
     public Transform playerClone;
-
-    public List<Transform> Clones;
 
     float xInput;
 
@@ -33,6 +32,14 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject end;
 
+    public Text NumberofClones;
+
+    public Text Dest;
+
+    public Text Checkpoint;
+
+    float checkpointshowTime = 2;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,22 +51,24 @@ public class PlayerScript : MonoBehaviour
     {
         if (GameManager.instance.gameplay == true)
         {
+            NumberofClones.gameObject.SetActive(true);
+            Dest.gameObject.SetActive(true);
             rb.bodyType = RigidbodyType2D.Dynamic;
-            if (Input.GetButtonDown("Jump") && isGrounded == true)
+            if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded == true)
             {
                 GenerateParticle(jumpparticle);
                 rb.velocity = Vector2.up * jumpstrength;
                 FindObjectOfType<AudioManager>().Play("Jump");
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyDown(KeyCode.X) && isGrounded == false)
             {
-                if (Clones.Count != 8)
+                if (GameManager.instance.Clones.Count != 8)
                 {
-                    Clones.Add(Instantiate(playerClone, transform.position, Quaternion.identity));
+                    GameManager.instance.Clones.Add(Instantiate(playerClone, transform.position, Quaternion.identity));
                 }
             }
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 Vector2 mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(mousepos, Vector3.forward);
@@ -67,7 +76,7 @@ public class PlayerScript : MonoBehaviour
                     return;
                 else
                     Destroy(hit.collider.gameObject);
-                Clones.Remove(hit.collider.transform);
+                GameManager.instance.Clones.Remove(hit.collider.transform);
             }
             if (isEnd == true)
             {
@@ -79,11 +88,11 @@ public class PlayerScript : MonoBehaviour
                 }
                 else
                 {
-                    if(transform.position.y - Camera.main.transform.position.y < Camera.main.orthographicSize - 5)
+                    if(transform.position.y - Camera.main.transform.position.y < Camera.main.orthographicSize - 10)
                     {
                         transform.Translate(new Vector2(0, 0.000001f * Time.deltaTime));
                         Vector2 playerSize = transform.localScale;
-                        playerSize += new Vector2(3, 3f) * Time.deltaTime;
+                        playerSize += new Vector2(2, 2f) * Time.deltaTime;
                         transform.localScale = playerSize;
                     }
                     else
@@ -96,6 +105,16 @@ public class PlayerScript : MonoBehaviour
                 }
                 rb.gravityScale = 0;
                 Camera.main.orthographicSize = 20;
+            }
+
+            if(Checkpoint.gameObject.activeSelf == true)
+            {
+                checkpointshowTime -= Time.deltaTime;
+                if (checkpointshowTime <= 0)
+                {
+                    Checkpoint.gameObject.SetActive(false);
+                    checkpointshowTime = 2;
+                }
             }
         }
         else
@@ -119,7 +138,6 @@ public class PlayerScript : MonoBehaviour
     {
         if(collision.tag == "LevelTrigger1" || collision.tag == "LevelTrigger2" || collision.tag == "LevelTrigger3")
         {
-            Debug.Log(GameManager.instance.levelnum);
             Camera.main.orthographicSize += 10;
             collision.gameObject.SetActive(false);
             GameManager.instance.setLevelNum();
@@ -133,18 +151,23 @@ public class PlayerScript : MonoBehaviour
         }
         if (collision.tag == "Lava")
         {
-            GenerateParticle(blastparticlelava);
             spawn1.Spawn();
         }
         if(collision.tag == "Spikes")
         {
-            GenerateParticle(blastparticlespike);
             spawn1.Spawn();
         }
         if (collision.tag == "Bullet")
         {
-            GenerateParticle(blastparticlespike);
             spawn1.Spawn();
+        }
+        if(collision.tag == "CheckPointL3" || collision.tag == "CheckPointL4")
+        {
+            if (Spawner.instance.LevelSpawns[GameManager.instance.levelnum] != collision.gameObject)
+            {
+                Spawner.instance.LevelSpawns[GameManager.instance.levelnum] = collision.gameObject;
+                Checkpoint.gameObject.SetActive(true);
+            }
         }
     }
 
