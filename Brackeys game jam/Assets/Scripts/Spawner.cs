@@ -12,20 +12,6 @@ public class Spawner : MonoBehaviour
 
     int levelnumber;
 
-    public static Spawner instance;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Update()
     {
         currplayer = GameObject.FindGameObjectWithTag("Player");
@@ -36,5 +22,6 @@ public class Spawner : MonoBehaviour
         levelnumber = GameManager.instance.levelnum;
         Destroy(currplayer);
         Instantiate(playerPrefab, LevelSpawns[levelnumber].transform.position, Quaternion.identity);
+        Debug.Log(LevelSpawns[GameManager.instance.levelnum].gameObject.name);
     }
 }

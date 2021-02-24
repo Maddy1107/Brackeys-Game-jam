@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,10 +13,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] Levels = new GameObject[4];
 
-    public List<Transform> Clones;
-
-    public Text NumberofClones;
-
     private void Awake()
     {
         if (instance == null)
@@ -28,11 +23,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Update()
-    {
-        NumberofClones.text = "Clones: " + GameObject.FindGameObjectsWithTag("Clone").Length + "/8";
     }
 
     private void Start()

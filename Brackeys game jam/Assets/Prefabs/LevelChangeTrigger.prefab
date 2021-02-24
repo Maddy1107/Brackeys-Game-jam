@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7494092829654337142}
   m_Layer: 0
   m_Name: Level3-4
-  m_TagString: LevelTrigger3
+  m_TagString: LevelTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,10 +49,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &2860724909472147872
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +61,7 @@ GameObject:
   - component: {fileID: 4686966835820555753}
   m_Layer: 0
   m_Name: Level4-5
-  m_TagString: LevelTrigger4
+  m_TagString: LevelTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,10 +98,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &6385977167208911046
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +110,7 @@ GameObject:
   - component: {fileID: 6385977167208911044}
   m_Layer: 0
   m_Name: Level2-3
-  m_TagString: LevelTrigger2
+  m_TagString: LevelTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,10 +147,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &6385977167385575360
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,7 +193,7 @@ GameObject:
   - component: {fileID: 6385977167727262635}
   m_Layer: 0
   m_Name: Level1-2
-  m_TagString: LevelTrigger1
+  m_TagString: LevelTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +230,3 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.5, y: 0}
   - {x: 0.5, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0

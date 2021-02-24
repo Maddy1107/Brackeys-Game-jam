@@ -15,9 +15,6 @@ TagManager:
   - LevelTrigger2
   - LevelTrigger4
   - LevelTrigger3
-  - Orb
-  - CheckPointL3
-  - CheckPointL4
   layers:
   - Default
   - TransparentFX
